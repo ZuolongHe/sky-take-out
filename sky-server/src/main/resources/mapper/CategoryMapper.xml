@@ -21,5 +21,11 @@
         order by create_time DESC
         limit #{page}, #{pageSize}
     </select>
+    <!--根据类型查询分类-->
+    <select id="getCategoryByType" resultType="com.sky.entity.Category">
+        select *
+        from category
+        where type = #{type}
+    </select>
 </mapper>
 

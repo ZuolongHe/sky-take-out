@@ -3,6 +3,7 @@ package com.sky.mapper;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.entity.Dish;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,4 +19,6 @@ public interface DishMapper {
     List<Dish> getAllDish(DishPageQueryDTO dishPageQueryDTO);
 
     int getTotal();
+
+    List<Dish> getDishById(@Param("categoryId") String categoryId);
 }

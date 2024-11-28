@@ -37,4 +37,14 @@ public class DishServiceImpl implements DishService {
         int total = dishMapper.getTotal();
         return new PageResult(total, allDish);
     }
+
+    /**
+     * 根据分类id查询菜品
+     * @return
+     */
+    @Override
+    public List<Dish> getDishById(String categoryId) {
+        List<Dish> dishes = dishMapper.getDishById(categoryId);
+        return dishes;
+    }
 }

@@ -1,6 +1,7 @@
 package com.sky.controller.admin;
 
 import com.sky.dto.DishPageQueryDTO;
+import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @Title sky-take-out
@@ -33,6 +36,13 @@ public class DishController {
     public Result<PageResult> getAllDish(DishPageQueryDTO dishPageQueryDTO){
         PageResult pageResult = dishService.getAllDish(dishPageQueryDTO);
         return Result.success(pageResult);
+    }
+
+
+    @GetMapping("/list")
+    public Result<List<Dish>> getDishById(String categoryId){
+        List<Dish> dishes = dishService.getDishById(categoryId);
+        return Result.success(dishes);
     }
 
 

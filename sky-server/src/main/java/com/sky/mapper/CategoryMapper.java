@@ -2,7 +2,10 @@ package com.sky.mapper;
 
 import com.sky.dto.CategoryPageQueryDTO;
 import com.sky.entity.Category;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 
 import java.util.List;
 
@@ -26,4 +29,11 @@ public interface CategoryMapper {
      * @return List<Category> list
      */
     List<Category> getAllCategory(CategoryPageQueryDTO categoryPageQueryDTO);
+
+    /**
+     * 根据类型查询分类
+     * @param type
+     * @return
+     */
+    List<Category> getCategoryByType(@Param("type") String type);
 }

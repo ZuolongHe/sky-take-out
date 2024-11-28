@@ -41,4 +41,15 @@ public class CategoryServiceImpl implements CategoryService {
         // 封装PageResult
         return new PageResult(total, list);
     }
+
+    /**
+     * 根据了类型查询分类
+     * @param type
+     * @return
+     */
+    @Override
+    public List<Category> getCategoryByType(String type) {
+        List<Category> category = categoryMapper.getCategoryByType(type);
+        return category;
+    }
 }

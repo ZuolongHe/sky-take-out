@@ -28,9 +28,17 @@
                 and user_id = #{userId}
             </if>
         </where>
-            order by order_time DESC
-            limit #{page}, #{pageSize}
+        order by order_time DESC
+        limit #{page}, #{pageSize}
 
+    </select>
+    <!--查询订单详数据-->
+    <select id="getOrderDetails" resultType="com.sky.entity.OrderDetail">
+        select *
+        from order_detail where order_id = #{id}
+    </select>
+    <select id="getOrderById" resultType="com.sky.entity.Orders">
+        select * from orders where id = #{id}
     </select>
 </mapper>
 

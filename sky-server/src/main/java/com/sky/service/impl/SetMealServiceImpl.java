@@ -1,5 +1,6 @@
 package com.sky.service.impl;
 
+import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Setmeal;
 import com.sky.mapper.SetMealMapper;
@@ -39,5 +40,16 @@ public class SetMealServiceImpl implements SetMealService {
         int total = setMealMapper.getTotal();
         // 返回pageResult结果
         return new PageResult(total, allMeal);
+    }
+
+    /**
+     * 新增套餐
+     * @param setmealDTO
+     * @return
+     */
+    @Override
+    public int addMeal(SetmealDTO setmealDTO) {
+
+        return 0;
     }
 }

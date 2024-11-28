@@ -1,8 +1,11 @@
 package com.sky.mapper;
 
 import com.sky.dto.OrdersPageQueryDTO;
+import com.sky.entity.OrderDetail;
 import com.sky.entity.Orders;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -20,4 +23,9 @@ public interface OrderMapper {
 
     // 分页查询当前页订单数据集合
     List<Orders> getAllOrder(OrdersPageQueryDTO ordersPageQueryDTO);
+
+    List<OrderDetail> getOrderDetails(@Param("id") Integer id);
+
+    // 根据orderId查询Order信息
+    Orders getOrderById(@Param("id") Integer id);
 }
