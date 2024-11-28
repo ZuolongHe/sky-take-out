@@ -1,5 +1,7 @@
 package com.sky.mapper;
 
+import com.sky.dto.EmployeeDTO;
+import com.sky.dto.EmployeeUpdatePasswordDTO;
 import com.sky.entity.Employee;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -21,4 +23,10 @@ public interface EmployeeMapper {
     int getTotal();
 
     List<Employee> getEmployee(@Param("name") String name, @Param("page") int page, @Param("pageSize") int pageSize);
+
+    int addEmployee(EmployeeDTO employeeDTO);
+
+    String getPassword(@Param("id") Long id);
+
+    int updatePassword(EmployeeUpdatePasswordDTO employeeUpdatePasswordDTO);
 }
