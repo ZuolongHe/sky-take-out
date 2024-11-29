@@ -3,6 +3,7 @@ package com.sky.service;
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.result.PageResult;
+import com.sky.vo.SetmealVO;
 
 /**
  * @Title sky-take-out
@@ -19,8 +20,8 @@ public interface SetMealService {
 
     /**
      * 新增套餐
-     * @param setmealDTO
+     * @param setmealVO
      * @return
      */
-    int addMeal(SetmealDTO setmealDTO);
+    int addMeal(SetmealVO setmealVO);
 }

@@ -3,9 +3,12 @@ package com.sky.service.impl;
 import com.sky.dto.SetmealDTO;
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Setmeal;
+import com.sky.entity.SetmealDish;
 import com.sky.mapper.SetMealMapper;
 import com.sky.result.PageResult;
 import com.sky.service.SetMealService;
+import com.sky.vo.SetmealVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,7 @@ import java.util.List;
  * @Date 2024/11/24 15:52
  * @Description
  */
+@Slf4j
 @Service
 public class SetMealServiceImpl implements SetMealService {
 
@@ -44,12 +48,19 @@ public class SetMealServiceImpl implements SetMealService {
 
     /**
      * 新增套餐
-     * @param setmealDTO
+     * @param setmealVO
      * @return
      */
     @Override
-    public int addMeal(SetmealDTO setmealDTO) {
-
-        return 0;
+    public int addMeal(SetmealVO setmealVO) {
+        // 1. 套餐信息存到setmeal中
+        int mealNum = setMealMapper.addMeal(setmealVO);
+        // 2. 套餐中包含的菜品setmealDishes存到setmeal_dish表中,forEach遍历存入数据库
+        List<SetmealDish> setmealDishes = setmealVO.getSetmealDishes();
+        setmealDishes.forEach(setmealDish -> {
+            int num = setMealMapper.addSetmealDishes(setmealDish);
+            log.info("返回num{}", num);
+        });
+        return mealNum;
     }
 }

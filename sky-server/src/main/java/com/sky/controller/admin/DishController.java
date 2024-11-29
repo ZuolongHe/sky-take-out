@@ -5,6 +5,7 @@ import com.sky.entity.Dish;
 import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.DishService;
+import com.sun.xml.internal.bind.v2.TODO;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class DishController {
     /**
      * 分页查询所有菜品
      */
+    // TODO Web端菜品分类不显示，分类id正常返回
     @GetMapping("/page")
     public Result<PageResult> getAllDish(DishPageQueryDTO dishPageQueryDTO){
         PageResult pageResult = dishService.getAllDish(dishPageQueryDTO);

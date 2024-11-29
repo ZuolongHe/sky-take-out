@@ -2,6 +2,8 @@ package com.sky.mapper;
 
 import com.sky.dto.SetmealPageQueryDTO;
 import com.sky.entity.Setmeal;
+import com.sky.entity.SetmealDish;
+import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -27,4 +29,18 @@ public interface SetMealMapper {
      * @return
      */
     int getTotal();
+
+    /**
+     * 套餐中菜品信息
+     * @param setmealDish
+     * @return
+     */
+    int addSetmealDishes(SetmealDish setmealDish);
+
+    /**
+     * 新增套餐
+     * @param setmealVO
+     * @return
+     */
+    int addMeal(SetmealVO setmealVO);
 }

@@ -3,6 +3,17 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sky.mapper.SetMealMapper">
+    <!--套餐中包含的菜品信息(循环遍历)-->
+    <insert id="addSetmealDishes">
+        insert into setmeal_dish(id, setmeal_id, dish_id, name, price, copies)
+            values(#{id}, #{setmealId}, #{dishId}, #{name}, #{price}, #{copies})
+    </insert>
+
+    <!--添加套餐信息-->
+    <insert id="addMeal">
+        insert into setmeal(id, category_id, name, price, status, description, image, update_time)
+            values(#{id}, #{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{updateTime})
+    </insert>
 
     <select id="getAllMeal" resultType="com.sky.entity.Setmeal">
         select * from setmeal
@@ -20,9 +31,11 @@
         order by create_time DESC
         limit #{page}, #{pageSize}
     </select>
+
     <select id="getTotal" resultType="java.lang.Integer">
         select count(*)
         from setmeal
     </select>
+
 </mapper>
 
