@@ -15,6 +15,7 @@ import com.sky.vo.EmployeeLoginVO;
 import io.jsonwebtoken.Claims;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -90,6 +91,31 @@ public class EmployeeController {
         log.info("插入数据{}", num);
         return Result.success();
     }
+
+
+    /**
+     * 根据id查询用户
+     * @return
+     */
+    @GetMapping("/{id}")
+    public Result<Employee> getEmployeeById(@PathVariable Integer id){
+        Employee employee =  employeeService.getEmployeeById(id);
+        return Result.success(employee);
+    }
+
+    /**
+     * 修改用户信息
+     * @param employee
+     * @return
+     */
+    @PutMapping
+    public Result editEmployeeById(@RequestBody Employee employee){
+        Integer code = employeeService.editEmployeeById(employee);
+        return Result.success();
+    }
+
+
+
 
     /**
      * 修改员工密码

@@ -27,6 +27,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeMapper employeeMapper;
 
+
+
+
     /**
      * 员工登录
      *
@@ -90,6 +93,27 @@ public class EmployeeServiceImpl implements EmployeeService {
         return num;
     }
 
+    /**
+     * 根据id查询员工
+     * @param id
+     * @return
+     */
+    @Override
+    public Employee getEmployeeById(Integer id) {
+        Employee employee = employeeMapper.getEmployeeById(id);
+        return employee;
+    }
+
+    /**
+     * 根据id修改用户
+     * @param employee
+     * @return
+     */
+    @Override
+    public Integer editEmployeeById(Employee employee) {
+        Integer code = employeeMapper.editEmployeeById(employee);
+        return code;
+    }
 
     /**
      * 修改员工密码

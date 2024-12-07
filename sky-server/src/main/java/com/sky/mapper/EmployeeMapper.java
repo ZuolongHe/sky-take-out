@@ -29,4 +29,24 @@ public interface EmployeeMapper {
     String getPassword(@Param("id") Long id);
 
     int updatePassword(EmployeeUpdatePasswordDTO employeeUpdatePasswordDTO);
+
+    /**
+     * 获取新用户数量
+     * @return
+     */
+    Integer getNewUser();
+
+    /**
+     * 根据id查询用户
+     * @param id
+     * @return
+     */
+    Employee getEmployeeById(@Param("id") Integer id);
+
+    /**
+     * 根据id修改用户
+     * @param employee
+     * @return
+     */
+    Integer editEmployeeById(Employee employee);
 }

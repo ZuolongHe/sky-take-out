@@ -18,6 +18,36 @@
         where id = #{id}
     </update>
 
+    <update id="editEmployeeById">
+        update employee
+        <set>
+            <if test="newPassword != null">
+                name = #{name},
+            </if>
+        </set>
+        <set>
+            <if test="newPassword != null">
+                username = #{username},
+            </if>
+        </set>
+        <set>
+            <if test="newPassword != null">
+                phone = #{phone},
+            </if>
+        </set>
+        <set>
+            <if test="newPassword != null">
+                sex = #{sex},
+            </if>
+        </set>
+        <set>
+            <if test="newPassword != null">
+                id_number = #{id_number}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
     <select id="getTotal" resultType="java.lang.Integer">
         select count(*)
         from employee
@@ -35,6 +65,13 @@
 
     <select id="getPassword" resultType="java.lang.String">
         select password
+        from employee
+        where id = #{id}
+    </select>
+    <select id="getNewUser" resultType="java.lang.Integer"></select>
+
+    <select id="getEmployeeById" resultType="com.sky.entity.Employee">
+        select *
         from employee
         where id = #{id}
     </select>

@@ -26,4 +26,18 @@ public interface EmployeeService {
     int addEmployee(EmployeeDTO employeeDTO);
 
     int updatePassword(EmployeeUpdatePasswordDTO employeeUpdatePasswordDTO);
+
+    /**
+     * 根据id查询员工
+     * @param id
+     * @return
+     */
+    Employee getEmployeeById(Integer id);
+
+    /**
+     * 根据id修改用户
+     * @param employee
+     * @return
+     */
+    Integer editEmployeeById(Employee employee);
 }
